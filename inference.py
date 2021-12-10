@@ -7,11 +7,11 @@ from tensorflow.keras.applications.vgg16 import preprocess_input
 from tensorflow.keras.preprocessing.image import img_to_array,array_to_img
 from tensorflow.python import keras
 
-classes = ['Eosinophil','Lymphocyte','Monocyte','Neutrophil']
-model = keras.models.load_model('model.h5')
+classes = ['The skin is infected with chickenpox','The skin is infected with Impetigo','The skin is infected with Infectious erythema','The skin is infected with Scabies','The skin is infected with Skin warts']
+model = keras.models.load_model('skin.h5')
 
 def predict(img_path):
-    image = load_img(img_path,target_size=(320,240))
+    image = load_img(img_path,target_size=(200,200))
     image = img_to_array(image)
     image = image.reshape((1,image.shape[0],image.shape[1],image.shape[2]))
     image = preprocess_input(image)
